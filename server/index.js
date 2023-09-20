@@ -62,7 +62,7 @@ app.use(cors(corsOptions));
 // ROUTES MIDDLEWARE
 app.use("/api", userRoutes);
 app.use("/api", applicantRoutes);
-app.use("/api", pdfRoutes); 
+//app.use("/api", pdfRoutes); 
 
 //ERROR HANDLING
 app.use(errorHandler);
