@@ -1,0 +1,17 @@
+{
+    "name": "admin-deploy",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "install-server": "cd server && npm install",
+      "start-server": "cd server && node index.js",
+      "install-admin": "cd admin-client && npm install",
+      "build-admin": "cd admin-client && npm run build",
+      "start-admin": "cd admin-client && npm run start"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+  }
+  
