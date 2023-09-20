@@ -28,11 +28,36 @@ mongoose
   .catch((err) => console.log("MongoDB connection failed:", err.message));
   
 //MIDDLEWARE
+const corsOptions = {
+  origin: "https://bellehr-admin-deploy.onrender.com",
+  methods: "*",
+  allowedHeaders: "*",
+};
+
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors());
+/*app.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://bellehr-admin-deploy.onrender.com"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Authorization, X-Content-Type-Options, Accept, X-Requested-With, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  res.setHeader("Access-Control-Allow-Private-Network", true);
+  res.setHeader("Access-Control-Max-Age", 7200); // max age (7200seconds = 2hrs)
+
+  next();
+});*/
+app.use(cors(corsOptions));
 
 // ROUTES MIDDLEWARE
 app.use("/api", userRoutes);
@@ -46,4 +71,9 @@ const port = process.env.PORT || 8080;
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
+});
+
+//Route
+app.get("/", (req, res) => {
+  res.status(201).json({message: "Connected to server"}); 
 });
