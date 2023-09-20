@@ -16,7 +16,7 @@ const App = () => {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch("https://admin-backend-6fnw.onrender.com")
+    fetch("http://localhost:8080")
       .then((response) => response.json())
       .then((data) => setMessage(data.message));
   }, []);

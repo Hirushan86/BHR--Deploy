@@ -29,7 +29,7 @@ mongoose
   
 //MIDDLEWARE
 const corsOptions = {
-  origin: "https://bellehr-admin-deploy.onrender.com",
+  origin: "http://localhost:8081",
   methods: "*",
   allowedHeaders: "*",
 };
