@@ -30,7 +30,7 @@ mongoose
   .then(() => console.log("MongoDB connection established."))
   .catch((err) => console.log("MongoDB connection failed:", err.message));
 
-  // Serve static files from the 'build' folder
+// Serve static files from the 'build' folder
 app.use(express.static(path.join(__dirname, "build")));
 
 //MIDDLEWARE
@@ -55,14 +55,5 @@ app.listen(port, () => {
 
 //Route
 app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"), (err) => {
-    if (err) {
-      // Handle any errors that occur while serving the HTML file
-      console.error(err);
-      res.status(500).send("Internal Server Error");
-    } else {
-      // Send a JSON response indicating that the server is connected
-      res.status(201).json({ message: "Connected to server" });
-    }
-  });
+  res.status(201).json({ message: "Connected to server" });
 });
