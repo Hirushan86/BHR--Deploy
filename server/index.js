@@ -28,23 +28,20 @@ mongoose
   .catch((err) => console.log("MongoDB connection failed:", err.message));
   
 //MIDDLEWARE
-const corsOptions = {
+/*const corsOptions = {
   origin: "https://bellehr-admin-deploy.onrender.com", // allowed origin
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE",
   allowedHeaders: "Content-Type, Authorization, X-Content-Type-Options, Accept, X-Requested-With, Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
   credentials: true, // Allow credentials (cookies, authorization headers)
   maxAge: 7200, // Max age for requests (2 hours)
-};
+};*/
 
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.json());
-/*app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://bellehr-admin-deploy.onrender.com"
-  );
+app.options("*", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "https://bhr-admin-panel.onrender.com");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE"
@@ -55,11 +52,12 @@ app.use(express.json());
   );
   res.setHeader("Access-Control-Allow-Credentials", true);
   res.setHeader("Access-Control-Allow-Private-Network", true);
-  res.setHeader("Access-Control-Max-Age", 7200); // max age (7200seconds = 2hrs)
+  res.setHeader("Access-Control-Max-Age", 7200); // Max age (7200 seconds = 2 hours)
 
-  next();
-});*/
-app.use(cors(corsOptions));
+  // Respond to preflight request with a 204 (No Content) status
+  res.sendStatus(204);
+});
+//app.use(cors(corsOptions));
 
 // ROUTES MIDDLEWARE
 app.use("/api", userRoutes);
@@ -79,3 +77,4 @@ app.listen(port, () => {
 app.get("/", (req, res) => {
   res.status(201).json({message: "Connected to server"}); 
 });
+
