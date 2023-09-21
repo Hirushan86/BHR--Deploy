@@ -52,7 +52,8 @@ app.options("*", (req, res) => {
 });
 app.use(cors({
   origin: 'https://bhr-admin-panel.onrender.com'
-}));
+ 
+}));  console.log("origin link:", origin);
 //app.use(cors(corsOptions));
 
 // ROUTES MIDDLEWARE
@@ -77,5 +78,5 @@ app.get("/", (req, res) => {
   res.setHeader("Access-Control-Allow-Credentials", true);
   res.setHeader("Access-Control-Allow-Private-Network", true);
   res.setHeader("Access-Control-Max-Age", 7200); // Max age (7200 seconds = 2 hours)
-  res.status(201).json({ message: "Connected to server" });
+  res.status(201).json({ message: "Connected to server", Headers });
 });
