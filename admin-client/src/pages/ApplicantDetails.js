@@ -29,7 +29,7 @@ import PDFViewDialog from "../component/common/ApplicationProcess/PDFViewDialog"
 
 
 const updateApplicantAttribute = (applicantId, attributeName, attributeValue) => {
-  fetch(`${apiUrl}/updateApplicantAttribute/${applicantId}`, {
+  fetch(`${process.env.API_URL}/updateApplicantAttribute/${applicantId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'

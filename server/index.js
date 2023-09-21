@@ -14,7 +14,7 @@ const applicantRoutes = require("./routes/admin/applicant");
 const pdfRoutes = require("./routes/uploads/pdfUploads");
 
 //Deployment Origins
-const allowedOrigin = 'https://bhr-admin-panel.onrender.com'; 
+const allowedOrigins = ['https://bhr-admin-panel.onrender.com', 'http://localhost:8081/']; 
 require("dotenv").config();
 
 const app = express();
@@ -30,7 +30,13 @@ mongoose
 
 //MIDDLEWARE
 const corsOptions = {
-  origin: "https://bellehr-admin-deploy.onrender.com", // allowed origin
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE",
   allowedHeaders: "Content-Type, Authorization, X-Content-Type-Options, Accept, X-Requested-With, Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
   credentials: true, // Allow credentials (cookies, authorization headers)

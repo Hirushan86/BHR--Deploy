@@ -75,7 +75,7 @@ Belle Babysitting`;
 
 
   const handleRoleChange = (userId, newRole) => {
-    axios.put(`${apiUrl}/api/setUser${newRole === 'active' ? 'Active' : 'Inactive'}/${userId}`)
+    axios.put(`${process.env.API_URL}/api/setUser${newRole === 'active' ? 'Active' : 'Inactive'}/${userId}`)
       .then(response => {
         setEmployeeDetails(prevDetails => ({
           ...prevDetails,
@@ -97,7 +97,7 @@ Belle Babysitting`;
 
 
   const updatePoliceExpiryDate = () => {
-    axios.put(`${apiUrl}/api/employeesDetails/employee/${employeeId}/policeExpiryDate`, {
+    axios.put(`${process.env.API_URL}/api/employeesDetails/employee/${employeeId}/policeExpiryDate`, {
       policeExpiryDate: employeeDetails.policeExpiryDate
     })
       .then(response => {

@@ -70,7 +70,7 @@ export function AuthProvider({ children }) {
 // Function to handle user sign-out
 const signOut = async () => {
   try {
-    await axios.get('/api/sign-out'); // Send a request to server-side sign-out route
+    await axios.get(`${process.env.API_URL}/api/sign-out`); // Send a request to server-side sign-out route
     // Clear the token from local storage
     localStorage.removeItem('userToken');
     // Remove the token from Axios headers
