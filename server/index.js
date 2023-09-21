@@ -29,7 +29,7 @@ mongoose
   
 //MIDDLEWARE
 const corsOptions = {
-  origin: "http://localhost:8081",
+  origin: "https://bhr-admin-panel.onrender.com",
   methods: "*",
   allowedHeaders: "*",
 };
