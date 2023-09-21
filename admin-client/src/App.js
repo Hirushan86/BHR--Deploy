@@ -13,14 +13,7 @@ import theme from "./styles/theme";
 import axios from "axios";
 
 const App = () => {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch(process.env.API_URL)
-      .then((response) => response.json())
-      .then((data) => setMessage(data.message));
-  }, []);
-
+ 
   return (
     <ThemeProvider theme={theme}>
       <Router>
