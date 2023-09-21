@@ -30,8 +30,8 @@ mongoose
   .then(() => console.log("MongoDB connection established."))
   .catch((err) => console.log("MongoDB connection failed:", err.message));
 
-// Serve static files from the 'build' folder
-app.use(express.static(path.join(__dirname, "build")));
+  // Serve static files from the 'build' folder
+//app.use(express.static(path.join(__dirname, "build")));
 
 //MIDDLEWARE
 app.use(morgan("dev"));
@@ -55,5 +55,8 @@ app.listen(port, () => {
 
 //Route
 app.get("/", function (req, res) {
-  res.status(201).json({ message: "Connected to server" });
+
+      // Send a JSON response indicating that the server is connected
+      res.status(201).json({ message: "Connected to server" });
+
 });
