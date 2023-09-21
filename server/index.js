@@ -14,10 +14,12 @@ const userRoutes = require("./routes/user/user"); //IMPORTING USER ROUTES
 const applicantRoutes = require("./routes/admin/applicant");
 const pdfRoutes = require("./routes/uploads/pdfUploads");
 
-//Deployment Origins
 require("dotenv").config();
 
 const app = express();
+
+// Enable CORS for all routes
+app.use(cors(corsOptions));
 
 // DATABASE CONNECTION
 mongoose
@@ -29,7 +31,6 @@ mongoose
   .catch((err) => console.log("MongoDB connection failed:", err.message));
 
 //MIDDLEWARE
-app.use(cors(corsOptions));
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(cookieParser());
