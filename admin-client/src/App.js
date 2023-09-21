@@ -16,7 +16,7 @@ const App = () => {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch("https://bhr-server-9omo.onrender.com")
+    fetch(process.env.API_URL)
       .then((response) => response.json())
       .then((data) => setMessage(data.message));
   }, []);

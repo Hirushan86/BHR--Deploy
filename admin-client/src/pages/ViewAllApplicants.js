@@ -33,7 +33,7 @@ const ViewAllApplicants = () => {
   useEffect(() => {
     const fetchApplicants = async () => {
       try {
-        const response = await axios.get("/api/applicants");
+        const response = await axios.get(`${apiUrl}/api/applicants`);
         setApplicants(response.data);
       } catch (error) {
         console.log(error);

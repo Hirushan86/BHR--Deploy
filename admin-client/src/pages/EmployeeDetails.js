@@ -28,7 +28,7 @@ const EmployeeDetails = () => {
     const fetchEmployeeDetails = async () => {
       try {
         const response = await axios.get(
-          `/api/employeesDetails/employee/${employeeId}`
+          `${apiUrl}/api/employeesDetails/employee/${employeeId}`
         );
         setEmployeeDetails(response.data);
       } catch (error) {
@@ -42,7 +42,7 @@ const EmployeeDetails = () => {
   useEffect(() => {
     const fetchApplicants = async () => {
       try {
-        const response = await axios.get("/api/applicants");
+        const response = await axios.get(`${apiUrl}/api/applicants`);
         setAllApplicants(response.data);
       } catch (error) {
         console.log(error);
@@ -75,7 +75,7 @@ Belle Babysitting`;
 
 
   const handleRoleChange = (userId, newRole) => {
-    axios.put(`/api/setUser${newRole === 'active' ? 'Active' : 'Inactive'}/${userId}`)
+    axios.put(`${apiUrl}/api/setUser${newRole === 'active' ? 'Active' : 'Inactive'}/${userId}`)
       .then(response => {
         setEmployeeDetails(prevDetails => ({
           ...prevDetails,
@@ -97,7 +97,7 @@ Belle Babysitting`;
 
 
   const updatePoliceExpiryDate = () => {
-    axios.put(`/api/employeesDetails/employee/${employeeId}/policeExpiryDate`, {
+    axios.put(`${apiUrl}/api/employeesDetails/employee/${employeeId}/policeExpiryDate`, {
       policeExpiryDate: employeeDetails.policeExpiryDate
     })
       .then(response => {
