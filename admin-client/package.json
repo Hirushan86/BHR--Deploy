@@ -51,5 +51,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8080"
+  "proxy": "https://bhr-server-9omo.onrender.com"
+
 }
