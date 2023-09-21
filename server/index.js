@@ -50,6 +50,9 @@ app.options("*", (req, res) => {
   // Respond to preflight request with a 204 (No Content) status
   res.sendStatus(204);
 });
+app.use(cors({
+  origin: 'https://bhr-admin-panel.onrender.com'
+}));
 //app.use(cors(corsOptions));
 
 // ROUTES MIDDLEWARE
