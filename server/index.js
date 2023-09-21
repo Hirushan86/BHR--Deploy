@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const multer = require('multer');
+const multer = require("multer");
 const UserModel = require("./models/UserModel");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
@@ -12,7 +12,6 @@ const errorHandler = require("./middleware/error");
 const userRoutes = require("./routes/user/user"); //IMPORTING USER ROUTES
 const applicantRoutes = require("./routes/admin/applicant");
 const pdfRoutes = require("./routes/uploads/pdfUploads");
-
 
 require("dotenv").config();
 
@@ -26,7 +25,7 @@ mongoose
   })
   .then(() => console.log("MongoDB connection established."))
   .catch((err) => console.log("MongoDB connection failed:", err.message));
-  
+
 //MIDDLEWARE
 /*const corsOptions = {
   origin: "https://bellehr-admin-deploy.onrender.com", // allowed origin
@@ -42,14 +41,8 @@ app.use(cookieParser());
 app.use(express.json());
 app.options("*", (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "https://bhr-admin-panel.onrender.com");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Content-Type, Authorization, X-Content-Type-Options, Accept, X-Requested-With, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
-  );
+  res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE");
+  res.setHeader( "Access-Control-Allow-Headers", "Content-Type, Authorization, X-Content-Type-Options, Accept, X-Requested-With, Origin, Access-Control-Request-Method, Access-Control-Request-Headers");
   res.setHeader("Access-Control-Allow-Credentials", true);
   res.setHeader("Access-Control-Allow-Private-Network", true);
   res.setHeader("Access-Control-Max-Age", 7200); // Max age (7200 seconds = 2 hours)
@@ -62,7 +55,7 @@ app.options("*", (req, res) => {
 // ROUTES MIDDLEWARE
 app.use("/api", userRoutes);
 app.use("/api", applicantRoutes);
-//app.use("/api", pdfRoutes); 
+//app.use("/api", pdfRoutes);
 
 //ERROR HANDLING
 app.use(errorHandler);
@@ -75,6 +68,11 @@ app.listen(port, () => {
 
 //Route
 app.get("/", (req, res) => {
-  res.status(201).json({message: "Connected to server"}); 
+  res.setHeader("Access-Control-Allow-Origin", "https://bhr-admin-panel.onrender.com");
+  res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE");
+  res.setHeader( "Access-Control-Allow-Headers", "Content-Type, Authorization, X-Content-Type-Options, Accept, X-Requested-With, Origin, Access-Control-Request-Method, Access-Control-Request-Headers");
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  res.setHeader("Access-Control-Allow-Private-Network", true);
+  res.setHeader("Access-Control-Max-Age", 7200); // Max age (7200 seconds = 2 hours)
+  res.status(201).json({ message: "Connected to server" });
 });
-
