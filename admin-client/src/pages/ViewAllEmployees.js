@@ -35,8 +35,8 @@ const ViewAllEmployees = () => {
     const fetchEmployeesAndApplicants = async () => {
       try {
         const [empResponse, appResponse] = await Promise.all([
-          axios.get(`${apiUrl}/api/employees`),
-          axios.get(`${apiUrl}/api/applicants`),
+          axios.get(`${process.env.API_URL}/api/employees`),
+          axios.get(`${process.env.API_URL}/api/applicants`),
         ]);
 
         setEmployees(empResponse.data);

@@ -28,7 +28,7 @@ const EmployeeDetails = () => {
     const fetchEmployeeDetails = async () => {
       try {
         const response = await axios.get(
-          `${apiUrl}/api/employeesDetails/employee/${employeeId}`
+          `${process.env.API_URL}/api/employeesDetails/employee/${employeeId}`
         );
         setEmployeeDetails(response.data);
       } catch (error) {
@@ -42,7 +42,7 @@ const EmployeeDetails = () => {
   useEffect(() => {
     const fetchApplicants = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/api/applicants`);
+        const response = await axios.get(`${process.env.API_URL}/api/applicants`);
         setAllApplicants(response.data);
       } catch (error) {
         console.log(error);

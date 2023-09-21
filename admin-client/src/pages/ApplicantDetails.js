@@ -71,7 +71,7 @@ const ApplicantDetails = () => {
   useEffect(() => {
     const fetchApplicantDetails = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/api/applicantsDetails/applicant/${applicantId}`);
+        const response = await axios.get(`${process.env.API_URL}/api/applicantsDetails/applicant/${applicantId}`);
         setApplicantDetails(response.data);
 
         const formattedFirstTableData = [
