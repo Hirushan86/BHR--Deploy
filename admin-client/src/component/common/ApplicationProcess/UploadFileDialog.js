@@ -50,7 +50,7 @@ function UploadFileDialog({
     console.log(applicantId)
     console.log(file)
     console.log(attribute)
-    axios.put(`${process.env.API_URL}/api/upload/${applicantId}/${attribute}`, formData)
+    axios.put(`/api/upload/${applicantId}/${attribute}`, formData)
       .then((response) => {
         // Handle success, possibly update UI
         console.log("File uploaded successfully");

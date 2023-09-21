@@ -50,7 +50,7 @@ function StatusUpdateDialog({
       console.log(applicantId);
       console.log(attribute);
       console.log(updatedStatus);
-      await axios.put(`${process.env.API_URL}/api/updateStatus/${applicantId}`, {
+      await axios.put(`/api/updateStatus/${applicantId}`, {
         updatedStatus,
         attribute,
       });
