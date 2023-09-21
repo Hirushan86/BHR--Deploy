@@ -2,6 +2,7 @@
   "name": "admin-client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://bhr-server-9omo.onrender.com", 
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -50,6 +51,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "https://bhr-server-9omo.onrender.com"
+  }
 }
