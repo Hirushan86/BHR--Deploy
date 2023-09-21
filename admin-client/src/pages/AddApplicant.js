@@ -138,7 +138,7 @@ function AddApplicant() {
       } else {
         applicant.curriculumVitae = null;
       }
-      const uploadRequest = await axios.post(`${process.env.API_URL}/api/upload_files`, formData, {
+      const uploadRequest = await axios.post(`/api/upload_files`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -152,7 +152,7 @@ function AddApplicant() {
         setSnackbarOpen(true);
       }
       // Send a POST request to backend
-      const { data } = await axios.post(`${process.env.API_URL}/api/add-applicant`, applicant);
+      const { data } = await axios.post(`/api/add-applicant`, applicant);
       console.log(data);
 
       if (data.success === true) {

@@ -29,7 +29,7 @@ import PDFViewDialog from "../component/common/ApplicationProcess/PDFViewDialog"
 
 
 const updateApplicantAttribute = (applicantId, attributeName, attributeValue) => {
-  fetch(`${process.env.API_URL}/updateApplicantAttribute/${applicantId}`, {
+  fetch(`/updateApplicantAttribute/${applicantId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -71,7 +71,7 @@ const ApplicantDetails = () => {
   useEffect(() => {
     const fetchApplicantDetails = async () => {
       try {
-        const response = await axios.get(`${process.env.API_URL}/api/applicantsDetails/applicant/${applicantId}`);
+        const response = await axios.get(`/api/applicantsDetails/applicant/${applicantId}`);
         setApplicantDetails(response.data);
 
         const formattedFirstTableData = [
