@@ -29,9 +29,11 @@ mongoose
   
 //MIDDLEWARE
 const corsOptions = {
-  origin: "https://bhr-admin-panel.onrender.com",
-  methods: "*",
-  allowedHeaders: "*",
+  origin: "https://bellehr-admin-deploy.onrender.com", // allowed origin
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE",
+  allowedHeaders: "Content-Type, Authorization, X-Content-Type-Options, Accept, X-Requested-With, Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+  credentials: true, // Allow credentials (cookies, authorization headers)
+  maxAge: 7200, // Max age for requests (2 hours)
 };
 
 app.use(morgan("dev"));
