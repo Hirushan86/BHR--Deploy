@@ -20,7 +20,7 @@ const app = express();
 
 // Enable CORS for all routes
 app.use(cors(corsOptions));
-console.log('Database connection  ${process.env.DATABASE}');
+console.log(`Database connection  ${process.env.DATABASE}`);
 // DATABASE CONNECTION
 mongoose
   .connect(process.env.DATABASE, {
