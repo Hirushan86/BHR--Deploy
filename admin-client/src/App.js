@@ -16,7 +16,7 @@ const App = () => {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch("https://bhr-server-9omo.onrender.com")
+    fetch("https://bhrserver.onrender.com/")
       .then((response) => response.json())
       .then((data) => setMessage(data.message));
   }, []);
