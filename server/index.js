@@ -20,7 +20,12 @@ require("dotenv").config();
 const app = express();
 
 // Enable CORS for all routes
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
+
+app.use(cors({
+  origin: '*'
+}));
+
 console.log(`Database connection 2  ${process.env.DATABASE}`);
 // DATABASE CONNECTION
 mongoose
