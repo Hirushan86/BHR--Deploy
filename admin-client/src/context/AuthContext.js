@@ -33,7 +33,7 @@ export function AuthProvider({ children }) {
   // Function to handle user sign-in
   const signIn = async (email, password, navigate) => {
     try {
-      const { data } = await axios.post(`/api/signIn`, {
+      const { data } = await axios.post(`https://bhrserver.onrender.com/api/signIn`, {
         email,
         password,
       });
