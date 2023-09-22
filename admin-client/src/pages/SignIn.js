@@ -67,7 +67,7 @@ const SignIn = () => {
     }
 
     try {
-      const { data } = await axios.post(`/api/signIn`, {
+      const { data } = await axios.post(`https://bhrserver.onrender.com/api/signIn`, {
         email,
         password,
       });
