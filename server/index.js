@@ -8,6 +8,7 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const errorHandler = require("./middleware/error");
 const corsOptions = require("./config/corsOptions");
+const originOptions = require("./config/allowedOrigins");
 
 //IMPORTING ROUTES
 const userRoutes = require("./routes/user/user"); //IMPORTING USER ROUTES
